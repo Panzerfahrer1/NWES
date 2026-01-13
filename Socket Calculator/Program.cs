@@ -1,0 +1,20 @@
+﻿using Socket_Calculator;
+using System.Net;
+using System.Net.Sockets;
+using TCPServer;
+
+//TCPCalculatorServer TCPCalculatorServer = new(IPAddress.Parse("127.0.0.0"), 1399);
+Client client = new Client(1399, System.Net.IPAddress.Loopback);
+client.SendMessage("Hello from TCP Client!");
+Console.WriteLine(client.GetMessage());
+System.Threading.Thread.Sleep(1000);
+client.SendMessage("Goodbye from TCP Client!");
+Console.WriteLine(client.GetMessage());
+client.SendMessage("Goodbye from TCP Client!");
+Console.WriteLine(client.GetMessage());
+client.SendMessage("Goodbye from TCP Client!");
+Console.WriteLine(client.GetMessage());
+client.SendMessage("Goodbye from TCP Client!");
+client.SendMessage("Goodbye from TCP Client!");
+Console.WriteLine(client.GetMessage());
+Console.WriteLine(client.GetMessage());

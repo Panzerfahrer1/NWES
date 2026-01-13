@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TCPServer
 {
-    internal class tcpServer
+    internal class tcpServer : ITCPServerInterface
     {
         private TcpListener server;
 
