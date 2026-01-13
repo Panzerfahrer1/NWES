@@ -2,5 +2,6 @@
   <Project Path="DNS/DNS.csproj" Id="c782a4b9-fa44-4ec9-901e-063cb0ba3afb" />
   <Project Path="EmailClient/EmailClient.csproj" />
   <Project Path="NWES/NWES.csproj" />
+  <Project Path="TCPClient/TCPClient.csproj" Id="3942f0b4-7395-4d8a-9e7c-c181d0f757b4" />
   <Project Path="TCPServer/TCPServer.csproj" Id="4f344cc5-a10a-43fb-b4ba-f3736e1a7366" />
 </Solution>

@@ -1,4 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Net.Sockets;
+﻿
+using TCPServer;
 
-Console.WriteLine("Hello, World!");
+tcpServer server = new tcpServer(8080, System.Net.IPAddress.Loopback);
+
+server.Start();

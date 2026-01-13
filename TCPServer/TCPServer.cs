@@ -6,11 +6,11 @@ using System.Text;
 
 namespace TCPServer
 {
-    internal class TCPServer
+    internal class tcpServer
     {
         private TcpListener server;
 
-        public TCPServer(int port, IPAddress serverAdress)
+        public tcpServer(int port, IPAddress serverAdress)
         {
             server = new TcpListener(serverAdress, port);
         }
@@ -19,16 +19,23 @@ namespace TCPServer
         {
             try
             {
+                server.Start();
                 while (true)
                 {
-                    server.Start();
-
                     using TcpClient client = server.AcceptTcpClient();
                     using NetworkStream stream = client.GetStream();
 
-                    string message = ReadData(stream);
+                    byte[] buffer = new byte[1024];
+                    int n;
 
-                    Console.WriteLine(message);
+                    while ((n = stream.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        string msg = Encoding.UTF8.GetString(buffer, 0, n);
+                        Console.WriteLine("Received: " + msg);
+
+                        byte[] resp = Encoding.UTF8.GetBytes("OK\n");
+                        stream.Write(resp, 0, resp.Length);
+                    }
                 }
             }
             catch (SocketException ex)
@@ -53,6 +60,6 @@ namespace TCPServer
             } while (stream.DataAvailable);
 
             return data.ToString();
-        }   
+        }
     }
 }
